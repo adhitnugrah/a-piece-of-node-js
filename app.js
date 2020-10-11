@@ -1,11 +1,12 @@
-var express = require('express');
-var app = express();
+const express = require('express');
 
-app.get('/', function (req, res) {
+const app = express();
+
+app.get('/', (req, res) => {
   res.json({
     ret: 0,
-    msg: "success"
-  })
+    msg: 'success',
+  });
 });
 
 module.exports = app;
