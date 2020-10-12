@@ -1,11 +1,15 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const crawler = require('./crawler');
 
-app.get('/', function (req, res) {
+const app = express();
+
+app.get('/', (req, res) => {
   res.json({
     ret: 0,
-    msg: "success"
-  })
+    msg: 'success',
+  });
 });
+
+app.get('/getNews', crawler.getNews);
 
 module.exports = app;
