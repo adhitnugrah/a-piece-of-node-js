@@ -15,7 +15,7 @@ function getClientIp(req) {
 }
 
 module.exports = {
-  login: (req, res) => {
+  login: (req, res, next) => {
     rateLimiter.consume(getClientIp(req), 1) // consume 1 points
       .then((rateLimiterRes) => {
       // 2 points consumed
@@ -23,9 +23,7 @@ module.exports = {
           ip: getClientIp(req),
           status: rateLimiterRes,
         });
-        res.send({
-          status: 'success',
-        });
+        next();
       })
       .catch((rateLimiterRes) => {
         console.log(rateLimiterRes);
