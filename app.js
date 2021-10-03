@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const crawler = require('./crawler');
+const rateLimiter = require('./rate-limiter');
 
 const sanitizer = require('./helper/sanitizer');
 
@@ -21,5 +22,6 @@ app.get('/xss', sanitizer, (req, res) => {
 });
 
 app.get('/getNews', crawler.getNews);
+app.get('/login', rateLimiter.login);
 
 module.exports = app;
