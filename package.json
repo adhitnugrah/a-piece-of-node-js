@@ -22,8 +22,10 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "morgan": "^1.10.0",
     "rate-limiter-flexible": "^2.3.1",
+    "session-file-store": "^1.5.0",
     "x-ray": "^2.3.4"
   },
   "devDependencies": {
